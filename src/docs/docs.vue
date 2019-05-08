@@ -111,6 +111,39 @@
 }</pre>
     </div>
 
+    <h1 id="tokens">Filter</h1>
+
+    <div class="equal width fields">
+      <span label="US Zip">{{ '12345' | maskFilter('12345') }}</span>
+      <span label="Brazil Zip">{{ '12345678901' | maskFilter('#####-###') }}</span>
+    </div>
+
+    <div class="equal width fields">
+      <span label="Brazil CPF">{{ '12345678901' | maskFilter('###.###.###-##') }}</span>
+      <span label="Brazil CNPJ">{{ '27.865.757/0063-05' | maskFilter('##.###.###/####-##') }}</span>
+    </div>
+
+    <div class="equal width fields">
+      <span label="US Phone">{{ '2025550134' | maskFilter('+1 (###) ###-####') }}</span>
+      <span label="Brazil Phone">{{ '4432211266' | maskFilter('+55 (##) ####-####') }}</span>
+    </div>
+
+    <div class="equal width fields">
+      <!-- <field label="IP Addr." mask="###.###.###.###" :masked="masked"></field> -->
+      <span label="DateTime">{{ '04011981 060515' | maskFilter('##/##/#### ##:##:##') }}</span>
+      <span label="Credit Card">{{ '4916479938940351' | maskFilter('#### #### #### ####') }}</span>
+    </div>
+
+    <div class="equal width fields">
+      <span label="Date">{{ '04011981' | maskFilter('##/##/####') }}</span>
+      <span label="Time">{{ '060515' | maskFilter('##:##:##') }}</span>
+    </div>
+
+    <div class="equal width fields">
+      <span label="Br Car Plate">{{ 'IVY1703' | maskFilter('AAA ####') }}</span>
+      <span label="Canada Zip">{{ 'M5P 2N7' | maskFilter('S#S #S#') }}</span>
+    </div>
+
     <h1 id="tokens">Tokens</h1>
     <pre>
     '#': {pattern: /\d/},
@@ -183,6 +216,7 @@
 import Field from './field'
 import TheMask from '../component'
 import mask from '../directive'
+import maskFilter from '../filter'
 
 export default {
   components: {Field, TheMask},
@@ -209,7 +243,8 @@ export default {
       return `<the-mask mask="${this.mask}" value="${this.value}" type="${this.type}" masked="${this.masked}" placeholder="${this.placeholder}"></the-mask>`
     }
   },
-  directives: {mask}
+  directives: {mask},
+  filters: {maskFilter}
 }
 </script>
 

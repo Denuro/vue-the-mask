@@ -10,7 +10,7 @@ export default function maskit (value, mask, masked = true, tokens) {
     var cValue = value[iValue]
     if (masker && !masker.escape) {
       if (masker.pattern.test(cValue)) {
-      	output += masker.transform ? masker.transform(cValue) : cValue
+        output += masker.transform ? masker.transform(cValue) : cValue
         iMask++
       }
       iValue++
@@ -28,7 +28,7 @@ export default function maskit (value, mask, masked = true, tokens) {
   // fix mask that ends with a char: (#)
   var restOutput = ''
   while (iMask < mask.length && masked) {
-    var cMask = mask[iMask]
+    cMask = mask[iMask]
     if (tokens[cMask]) {
       restOutput = ''
       break
