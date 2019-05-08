@@ -46,7 +46,7 @@ export default {
 ### Local (as filter)
 
 ```javascript
-import {mask} from 'vue-the-mask'
+import {TheMaskFilter} from 'vue-the-mask'
 export default {
   directives: {TheMaskFilter}
 }
