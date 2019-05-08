@@ -60,10 +60,10 @@ export default function (el, binding, vnode) {
       el.dispatchEvent(event('input'))
     }
 
-    var newDisplay = masker(el.value, config.mask, config.masked, config.tokens)
-    if (newDisplay !== el.value) {
-      vnode.context.$nextTick(() => {
+    vnode.context.$nextTick(() => {
+      var newDisplay = masker(el.value, config.mask, config.masked, config.tokens)
+      if (newDisplay !== el.value) {
         el.value = newDisplay
-      })
-    }
+      }
+    })
   }

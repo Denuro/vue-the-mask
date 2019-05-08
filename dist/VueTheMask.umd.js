@@ -319,13 +319,13 @@ function directive_event(name) {
     el.dispatchEvent(directive_event('input'));
   };
 
-  var newDisplay = masker(el.value, config.mask, config.masked, config.tokens);
+  vnode.context.$nextTick(() => {
+    var newDisplay = masker(el.value, config.mask, config.masked, config.tokens);
 
-  if (newDisplay !== el.value) {
-    vnode.context.$nextTick(() => {
+    if (newDisplay !== el.value) {
       el.value = newDisplay;
-    });
-  }
+    }
+  });
 });
 // CONCATENATED MODULE: ./filter.js
 
@@ -423,7 +423,7 @@ function directive_event(name) {
 
   }
 });
-// CONCATENATED MODULE: ../node_modules/vue-loader/lib/template-compiler?{"id":"data-v-b1b8182c","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!../node_modules/vue-loader/lib/selector.js?type=template&index=0!./component.vue
+// CONCATENATED MODULE: ../node_modules/vue-loader/lib/template-compiler?{"id":"data-v-b1b8182c","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!../node_modules/vue-loader/lib/selector.js?type=template&index=0!./component.vue
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('input',{directives:[{name:"mask",rawName:"v-mask",value:(_vm.config),expression:"config"}],attrs:{"type":"text"},domProps:{"value":_vm.display},on:{"input":_vm.onInput}})}
 var staticRenderFns = []
 
